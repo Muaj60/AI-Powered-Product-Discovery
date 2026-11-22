@@ -10,9 +10,7 @@ The goal is to reduce the time and effort required for online product research a
 
 ## Problem Statement
 
-Online shoppers often face difficulties when searching for products across multiple e-commerce platforms. Product specifications, prices, and features may vary between websites, making it difficult to identify the most suitable product.
-
-Traditional product comparison systems mainly rely on keyword-based searches and manual comparisons.
+Online shoppers often face difficulties when searching for products across multiple e-commerce platforms. Product specifications, prices, and features may vary between websites, making it difficult to identify the most suitable product. Traditional product comparison systems mainly rely on keyword-based searches and manual comparisons.
 
 This project aims to solve these problems through AI-powered product discovery, intelligent matching, automated comparison, and explainable recommendations.
 
@@ -55,59 +53,53 @@ This project aims to solve these problems through AI-powered product discovery, 
 
 ## Technology Stack
 
-### Frontend
-- React.js
-- HTML
-- Tailwind CSS
-- DaisyUI
-- JavaScript
+| Part | Technologies |
+|---|---|
+| Frontend | React.js, HTML, Tailwind CSS, DaisyUI, JavaScript |
+| Backend | Node.js, Express.js (REST API) |
+| Database | PostgreSQL |
+| Data Collection | Python, BeautifulSoup, Requests, Playwright |
+| AI Integration | OpenAI API (GPT model) |
+| Tools | Git, GitHub, VS Code |
 
-### Backend
-- Node.js
-- Express.js
+## System Architecture
 
-### Web Scraping
-- Python
-- BeautifulSoup
-- Requests
-- Playwright
+Frontend (React) -> Backend API (Node.js + Express.js) -> Database (PostgreSQL)
 
-### Artificial Intelligence
-- Large Language Model API (ChatGPT / Claude or another suitable platform)
-
-### Database
-- MongoDB / SQL
-
-### Development Tools
-- Git
-- GitHub
-- VS Code
+The backend also calls the AI Service (OpenAI API). A separate Python pipeline collects and cleans product data and sends it to the backend. See `diagrams/` and `documentation/` for details.
 
 ## System Workflow
 
 1. The user enters product requirements using natural language.
-2. The backend processes the search query and extracts structured criteria.
+2. The backend processes the search query and the AI extracts structured criteria.
 3. The system collects product information from permitted e-commerce sources.
 4. Product data is cleaned and stored in the database.
-5. AI analyzes the user's requirements and matches relevant products.
-6. The system compares product specifications and prices.
-7. AI generates recommendations with explanations.
+5. The backend matches products against the criteria.
+6. AI ranks the matched products and writes explanations.
+7. The system compares product specifications and prices.
 8. The user views the results and original product links.
 
 ## Repository Structure
 
-- frontend/ - User interface
-- backend/ - API, AI and scraping logic
-- database/ - Database schema and sample data
-- docs/ - Project documentation
-- AI/ - Using existing LLM tool
+```
+frontend/        React user interface
+backend/         Node.js + Express.js REST API
+database/        PostgreSQL schema (schema.sql)
+scraper/         Python data collection and cleaning
+documentation/   Proposal, SRS, System Design Document
+diagrams/        Architecture, ER, Use Case, and Activity diagrams
+README.md
+```
 
 ## Documentation
 
-All project documents are in the `docs/` folder:
+- `documentation/CSE4104-7C-T10_Proposal.pdf`
+- `documentation/CSE4104-7C-T10_SRS.pdf`
+- `documentation/CSE4104-7C-T10_SystemDesign.pdf`
 
-- Project Proposal
-- Software Requirements Specification (SRS)
-- Use Case Diagram
-- ER Diagram
-- System Architecture Diagram
+## Diagrams
+
+- `diagrams/CSE4104-7C-T10_ArchitectureDiagram.pdf`
+- `diagrams/CSE4104-7C-T10_ERDiagram.pdf`
+- `diagrams/CSE4104-7C-T10_UseCaseDiagram.pdf`
+- `diagrams/CSE4104-7C-T10_ActivityDiagram.pdf`
